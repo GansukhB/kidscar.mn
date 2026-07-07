@@ -7,43 +7,51 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-800 font-sans">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
+      <nav className="fixed top-0 inset-x-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 box-border overflow-x-hidden">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16 items-center flex-nowrap">
+
+            {/* Logo Wrapper */}
             <div className="flex-shrink-0 flex items-center">
               <Image
-                src="/logo1.png"
-                alt="Kids Car"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-                priority
+                  src="/logo1.png"
+                  alt="Kids Car"
+                  width={120}
+                  height={40}
+                  className="h-10 w-auto"
+                  priority
               />
             </div>
+
+            {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               <a href="#home" className="text-gray-600 hover:text-brand-orange transition-colors font-medium">Нүүр</a>
               <a href="#features" className="text-gray-600 hover:text-brand-orange transition-colors font-medium">Давуу тал</a>
               <a href="#how-it-works" className="text-gray-600 hover:text-brand-orange transition-colors font-medium">Хэрхэн ажилладаг вэ?</a>
               <a href="#contact" className="text-gray-600 hover:text-brand-orange transition-colors font-medium">Холбоо барих</a>
             </div>
-            <div className="md:hidden">
+
+            {/* Mobile Menu Button - Added flex-shrink-0 */}
+            <div className="md:hidden flex-shrink-0 flex items-center justify-center">
               <button
-                className="text-gray-600 focus:outline-none"
-                onClick={() => {
-                  const menu = document.getElementById('mobile-menu');
-                  if (menu) menu.classList.toggle('hidden');
-                }}
+                  className="text-gray-600 focus:outline-none p-2"
+                  onClick={() => {
+                    const menu = document.getElementById('mobile-menu');
+                    if (menu) menu.classList.toggle('hidden');
+                  }}
               >
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
               </button>
             </div>
+
           </div>
         </div>
+
         {/* Mobile Menu */}
-        <div id="mobile-menu" className="hidden md:hidden bg-white border-b border-gray-100">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div id="mobile-menu" className="hidden md:hidden bg-white border-b border-gray-100 w-full">
+          <div className="px-4 pt-2 pb-3 space-y-1">
             <a href="#home" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Нүүр</a>
             <a href="#features" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Давуу тал</a>
             <a href="#how-it-works" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Хэрхэн ажилладаг вэ?</a>
