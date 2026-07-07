@@ -12,8 +12,8 @@ export default function Home() {
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0 flex items-center">
               <Image
-                src="/logo.png"
-                alt="Kids Car Logo"
+                src="/logo1.png"
+                alt="Kids Car"
                 width={120}
                 height={40}
                 className="h-10 w-auto"
@@ -76,20 +76,14 @@ export default function Home() {
               <div className="bg-brand-orange/10 rounded-full w-64 h-64 absolute -top-10 -left-10 blur-3xl"></div>
               <div className="bg-brand-blue/10 rounded-full w-64 h-64 absolute -bottom-10 -right-10 blur-3xl"></div>
               <div className="relative bg-white p-2 rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-                <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-blue-100 to-orange-50 flex items-center justify-center relative">
-                  <div className="absolute inset-0 opacity-20">
-                    <svg className="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                      <path d="M0,50 Q25,25 50,50 T100,50" fill="none" stroke="currentColor" strokeWidth="2" />
-                      <path d="M0,70 Q25,45 50,70 T100,70" fill="none" stroke="currentColor" strokeWidth="2" />
-                    </svg>
-                  </div>
-                  <div className="text-center z-10">
-                    <div className="text-6xl mb-4">🚗</div>
-                    <div className="text-brand-blue font-bold text-xl px-6 py-2 bg-white rounded-full shadow-md">
-                      Kids Car LLC
-                    </div>
-                  </div>
-                </div>
+                <Image
+                  src="/hero.webp"
+                  alt="Kids Car"
+                  width={600}
+                  height={450}
+                  className="rounded-2xl w-full h-auto object-cover"
+                  priority
+                />
               </div>
             </div>
         </div>
@@ -185,18 +179,60 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              "Хүүхэд бүр 10 сая төгрөгийн гэнэтийн ослын даатгалд автоматаар хамрагдана.",
-              "Жолооч бүртгэх Сэтгэлзүйн тест, Утас, видео ярилцлага",
-              "Байршил хяналт - Хүргэлтийн явцыг хянах дэлгэц",
-              "Жолоочийн хүүхэд хүргэлтийн хүүхэдтэй ижил сургуульд сурдаг байх шаардлага",
-              "Багадаа 1 сараар хийгдэх “Хүүхэд хүргэлтийн гурван талт цахим гэрээ”",
-              "Бичиг баримтын баталгаажуулалт болон Жолоочийн гэрээний гүйцэтгэлийн хяналт"
+              {
+                text: "Хүүхэд бүр 10 сая төгрөгийн гэнэтийн ослын даатгалд автоматаар хамрагдана.",
+                icon: (
+                  <svg className="w-5 h-5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                )
+              },
+              {
+                text: "Жолооч бүртгэх Сэтгэлзүйн тест, Утас, видео ярилцлага",
+                icon: (
+                  <svg className="w-5 h-5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                )
+              },
+              {
+                text: "Байршил хяналт - Хүргэлтийн явцыг хянах дэлгэц",
+                icon: (
+                  <svg className="w-5 h-5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                )
+              },
+              {
+                text: "Жолоочийн хүүхэд хүргэлтийн хүүхэдтэй ижил сургуульд сурдаг байх шаардлага",
+                icon: (
+                  <svg className="w-5 h-5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                  </svg>
+                )
+              },
+              {
+                text: "Багадаа 1 сараар хийгдэх “Хүүхэд хүргэлтийн гурван талт цахим гэрээ”",
+                icon: (
+                  <svg className="w-5 h-5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                )
+              },
+              {
+                text: "Бичиг баримтын баталгаажуулалт болон Жолоочийн гэрээний гүйцэтгэлийн хяналт",
+                icon: (
+                  <svg className="w-5 h-5 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                )
+              }
             ].map((item, i) => (
               <div key={i} className="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-start space-x-4 hover:shadow-md transition-shadow">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange font-bold">
-                  {i + 1}
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange">
+                  {item.icon}
                 </div>
-                <p className="text-gray-700">{item}</p>
+                <p className="text-gray-700">{item.text}</p>
               </div>
             ))}
           </div>
@@ -272,7 +308,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-800 pb-12 mb-12">
             <div className="flex items-center mb-8 md:mb-0">
               <Image
-                src="/logo.png"
+                src="/logo1.png"
                 alt="Kids Car Logo"
                 width={120}
                 height={40}

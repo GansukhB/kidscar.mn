@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     siteName: "Kids Car",
     images: [
       {
-        url: "/logo.png",
+        url: "/hero.webp",
         width: 1200,
         height: 630,
-        alt: "Kids Car Logo",
+        alt: "Kids Car Hero",
       },
     ],
     locale: "mn_MN",
