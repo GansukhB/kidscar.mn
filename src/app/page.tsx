@@ -147,6 +147,62 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Problem & Impact Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Хүүхдийн зорчилт хөдөлгөөний асуудлууд</h2>
+            <div className="h-1.5 w-20 bg-brand-orange mx-auto rounded-full"></div>
+            <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+              Бид сурагчдын аюулгүй байдал, замын ачаалал, эцэг эхийн цаг зав зэрэг олон тулгамдсан асуудлыг шийдвэрлэхээр ажиллаж байна.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Аюулгүй байдал</h4>
+              <p className="text-gray-600">Зам тээврийн ослоос урьдчилан сэргийлж, хүүхдийн аюулгүй зорчих орчинг бүрдүүлнэ.</p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Түгжрэлийг бууруулах</h4>
+              <p className="text-gray-600">Сургууль, цэцэрлэгтэй холбоотой 460,000+ зорчих хөдөлгөөнийг оновчтой болгох.</p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Цаг хэмнэлт</h4>
+              <p className="text-gray-600">Эцэг эхийн хөдөлмөр эрхлэлтийг дэмжиж, урт маршрут, урт хугацааг багасгах.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Safety Indicators Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">ХҮҮХДИЙН АЮУЛГҮЙ БАЙДЛЫГ ХАНГАХ ЗУРГААН ҮЗҮҮЛЭЛТ</h2>
+            <div className="h-1.5 w-20 bg-brand-blue mx-auto rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              "Хүүхэд бүр 10 сая төгрөгийн гэнэтийн ослын даатгалд автоматаар хамрагдана.",
+              "Жолооч бүртгэх Сэтгэлзүйн тест, Утас, видео ярилцлага",
+              "Байршил хяналт - Хүргэлтийн явцыг хянах дэлгэц",
+              "Жолоочийн хүүхэд хүргэлтийн хүүхэдтэй ижил сургуульд сурдаг байх шаардлага",
+              "Багадаа 1 сараар хийгдэх “Хүүхэд хүргэлтийн гурван талт цахим гэрээ”",
+              "Бичиг баримтын баталгаажуулалт болон Жолоочийн гэрээний гүйцэтгэлийн хяналт"
+            ].map((item, i) => (
+              <div key={i} className="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-start space-x-4 hover:shadow-md transition-shadow">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange font-bold">
+                  {i + 1}
+                </div>
+                <p className="text-gray-700">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* For Parents & Drivers Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-50">
         <div className="max-w-7xl mx-auto">
