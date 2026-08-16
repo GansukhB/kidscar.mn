@@ -334,6 +334,7 @@ export default function Home() {
             <p>&copy; {new Date().getFullYear()} Kids Car LLC. Бүх эрх хуулиар хамгаалагдсан.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="/privacy" className="hover:text-white transition-colors">Нууцлалын бодлого</Link>
+              <Link href="/delete-account" className="hover:text-white transition-colors">Бүртгэл устгах</Link>
               <Link href="/terms" className="hover:text-white transition-colors">Үйлчилгээний нөхцөл</Link>
             </div>
           </div>
