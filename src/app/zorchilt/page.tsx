@@ -2,6 +2,8 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Metadata } from "next";
 
+import ZorchiltGate from "./ZorchiltGate";
+
 export const metadata: Metadata = {
   title: "Улаанбаатар · Сурагчдын зорчилтын урсгал | Kids Car",
   description:
@@ -27,13 +29,6 @@ const mapHtml = readFileSync(
 );
 
 export default function ZorchiltPage() {
-  return (
-    <div className="fixed inset-0">
-      <iframe
-        srcDoc={mapHtml}
-        title="Улаанбаатар · Сурагчдын зорчилтын урсгал"
-        className="block h-full w-full border-0"
-      />
-    </div>
-  );
+  // Хуудас хаалттай — газрын зургийг зөвхөн нэвтэрсний дараа ZorchiltGate үзүүлнэ.
+  return <ZorchiltGate mapHtml={mapHtml} />;
 }
