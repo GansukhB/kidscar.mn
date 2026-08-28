@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -15,11 +17,20 @@ export const metadata: Metadata = {
   },
 };
 
+// Газрын зургийн бүтэн, бие даасан HTML документыг build үед уншиж iframe-д
+// srcDoc-оор шингээнэ. public/ доторх .html файлыг URL-ээр дуудвал Vercel-ийн
+// cleanUrls өргөтгөлийг тасалж 404 өгдөг (dev дээр эсрэгээрээ), тул хостоос
+// хамаардаггүй энэ аргыг сонгов.
+const mapHtml = readFileSync(
+  join(process.cwd(), "data", "UB_zorchilt_map.html"),
+  "utf8",
+);
+
 export default function ZorchiltPage() {
   return (
     <div className="fixed inset-0">
       <iframe
-        src="/zorchilt-map.html"
+        srcDoc={mapHtml}
         title="Улаанбаатар · Сурагчдын зорчилтын урсгал"
         className="block h-full w-full border-0"
       />
