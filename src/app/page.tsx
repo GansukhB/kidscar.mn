@@ -2,6 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import RegistrationSection from "@/components/landing/RegistrationSection";
+import JourneySection from "@/components/landing/JourneySection";
+import {
+  AnnouncementPill,
+  CtaSection,
+  DriversSection,
+  FaqSection,
+  ParentsSection,
+  TrustRow,
+} from "@/components/landing/InfoSections";
 
 export default function Home() {
   return (
@@ -24,15 +34,18 @@ export default function Home() {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex items-center md:space-x-4 md:text-sm lg:space-x-8 lg:text-base">
               <a href="#home" className="text-gray-600 hover:text-brand-orange transition-colors font-medium">Нүүр</a>
               <a href="#features" className="text-gray-600 hover:text-brand-orange transition-colors font-medium">Давуу тал</a>
               <a href="#how-it-works" className="text-gray-600 hover:text-brand-orange transition-colors font-medium">Хэрхэн ажилладаг вэ?</a>
+              <a href="#faq" className="hidden lg:inline text-gray-600 hover:text-brand-orange transition-colors font-medium">Асуулт</a>
               <a href="#contact" className="text-gray-600 hover:text-brand-orange transition-colors font-medium">Холбоо барих</a>
+              <a href="#register" data-register="parent" className="bg-brand-blue hover:bg-blue-700 text-white px-5 py-2 rounded-full font-semibold transition-colors">Бүртгүүлэх</a>
             </div>
 
             {/* Mobile Menu Button - Added flex-shrink-0 */}
-            <div className="md:hidden flex-shrink-0 flex items-center justify-center">
+            <div className="md:hidden flex-shrink-0 flex items-center justify-center gap-2">
+              <a href="#register" data-register="parent" className="hidden min-[340px]:inline-block bg-brand-blue text-white px-3 min-[375px]:px-4 py-1.5 rounded-full text-xs min-[375px]:text-sm font-semibold">Бүртгүүлэх</a>
               <button
                   className="text-gray-600 focus:outline-none p-2"
                   onClick={() => {
@@ -55,6 +68,7 @@ export default function Home() {
             <a href="#home" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Нүүр</a>
             <a href="#features" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Давуу тал</a>
             <a href="#how-it-works" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Хэрхэн ажилладаг вэ?</a>
+            <a href="#faq" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Асуулт</a>
             <a href="#contact" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Холбоо барих</a>
           </div>
         </div>
@@ -64,6 +78,7 @@ export default function Home() {
       <section id="home" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 lg:pr-12">
+            <AnnouncementPill />
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
               Хүүхдэд зориулсан <br />
               <span className="text-brand-orange">Аюулгүй унаа</span>
@@ -72,13 +87,14 @@ export default function Home() {
               Kids Car LLC нь найдвартай жолооч нарыг эцэг эхчүүдтэй холбож, сурагч болон хүүхдүүдэд аюулгүй, баяртай, цэвэрхэн унаагаар үйлчилнэ. Өнөөдөр манай хамт олонд нэгдээрэй!
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-brand-blue hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-lg">
+              <a href="#register" data-register="parent" className="text-center bg-brand-blue hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-lg">
                 Эхлэх
-              </button>
-              <button className="border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-8 py-3 rounded-full font-bold text-lg transition-all">
+              </a>
+              <a href="#features" className="text-center border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-8 py-3 rounded-full font-bold text-lg transition-all">
                 Дэлгэрэнгүй
-              </button>
+              </a>
             </div>
+            <TrustRow />
           </div>
             <div className="lg:w-1/2 mt-12 lg:mt-0 relative">
               <div className="bg-brand-orange/10 rounded-full w-64 h-64 absolute -top-10 -left-10 blur-3xl"></div>
@@ -96,6 +112,9 @@ export default function Home() {
             </div>
         </div>
       </section>
+
+      {/* NEW: Registration form (Google Sheets) */}
+      <RegistrationSection />
 
       {/* Features Section */}
       <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -148,6 +167,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* NEW: For parents (visual) + For drivers / teachers */}
+      <ParentsSection />
+      <DriversSection />
 
       {/* Problem & Impact Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
@@ -309,6 +332,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* NEW: Daily journey demo, FAQ, final call-to-action */}
+      <JourneySection />
+      <FaqSection />
+      <CtaSection />
 
       {/* Footer / Contact Section */}
       <footer id="contact" className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
