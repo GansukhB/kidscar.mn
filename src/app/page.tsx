@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import RegistrationSection from "@/components/landing/RegistrationSection";
 import JourneySection from "@/components/landing/JourneySection";
+import HeroVideo from "@/components/landing/HeroVideo";
 import {
   AnnouncementPill,
   CtaSection,
@@ -96,19 +97,11 @@ export default function Home() {
             </div>
             <TrustRow />
           </div>
-            <div className="lg:w-1/2 mt-12 lg:mt-0 relative">
+            <div className="w-full lg:w-1/2 mt-12 lg:mt-0 relative">
               <div className="bg-brand-orange/10 rounded-full w-64 h-64 absolute -top-10 -left-10 blur-3xl"></div>
               <div className="bg-brand-blue/10 rounded-full w-64 h-64 absolute -bottom-10 -right-10 blur-3xl"></div>
-              <div className="relative bg-white p-2 rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-                <Image
-                  src="/hero.webp"
-                  alt="Kids Car"
-                  width={600}
-                  height={450}
-                  className="rounded-2xl w-full h-auto object-cover"
-                  priority
-                />
-              </div>
+              {/* YouTube Shorts бичлэг (өмнөх /hero.webp зургийн оронд) — дарж тоглуулна */}
+              <HeroVideo className="mx-auto w-full max-w-sm lg:max-w-md" />
             </div>
         </div>
       </section>
