@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     siteName: "Kids Car",
     images: [
       {
-        url: "/hero.webp",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Kids Car Hero",
+        alt: "Kids Car — жолооч хүүхдүүдийг цагаан машинаар сургууль руу хүргэж яваа дүрслэл",
       },
     ],
     locale: "mn_MN",
