@@ -6,32 +6,41 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { CarIcon, PersonIcon } from "./icons";
 
 type Role = "parent" | "driver";
-type Fields = { name: string; phone: string; from: string; to: string };
+type Fields = { name: string; phone: string; email: string; from: string; to: string };
 
 // Google Apps Script Web App-ийн /exec URL. Build хийх үед JS-д шингэнэ
 // (google-apps-script/README.md-г үзнэ үү).
 const ENDPOINT = process.env.NEXT_PUBLIC_REGISTRATION_ENDPOINT;
 
 const REQUIRED_MESSAGE = "Нэр, утасны дугаар, хаанаас, хаашаа гэсэн бүх талбарыг бөглөнө үү.";
+const DRIVER_REQUIRED_MESSAGE = "Нэр, утасны дугаар, имэйл, хаанаас, хаашаа гэсэн бүх талбарыг бөглөнө үү.";
 const PHONE_MESSAGE = "Утасны дугаараа зөв оруулна уу.";
+const EMAIL_MESSAGE = "Имэйл хаягаа зөв оруулна уу.";
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const LENGTH_MESSAGE = "Оруулсан мэдээлэл хэт урт байна. Товчлон оруулна уу.";
 const SERVER_MESSAGE =
   "Бүртгэл илгээхэд алдаа гарлаа. Дахин оролдоно уу эсвэл info@kidscar.mn хаягаар холбогдоно уу.";
 const RATE_MESSAGE = "Хэт олон хүсэлт илгээлээ. Нэг минутын дараа дахин оролдоно уу.";
 
-const EMPTY: Fields = { name: "", phone: "", from: "", to: "" };
+const EMPTY: Fields = { name: "", phone: "", email: "", from: "", to: "" };
 
-function validate(f: Fields): { data?: Fields; error?: string } {
-  const data: Fields = {
+// Имэйлийг зөвхөн жолоочийн бүртгэлд авч, илгээнэ.
+function validate(f: Fields, role: Role): { data?: Record<string, string>; error?: string } {
+  const isDriver = role === "driver";
+  const data: Record<string, string> = {
     name: f.name.trim(),
     phone: f.phone.trim(),
     from: f.from.trim(),
     to: f.to.trim(),
   };
-  if (!data.name || !data.phone || !data.from || !data.to) return { error: REQUIRED_MESSAGE };
+  if (isDriver) data.email = f.email.trim();
+  if (!data.name || !data.phone || !data.from || !data.to || (isDriver && !data.email)) {
+    return { error: isDriver ? DRIVER_REQUIRED_MESSAGE : REQUIRED_MESSAGE };
+  }
   if (data.phone.replace(/\D/g, "").length < 8 || data.phone.length > 24 || !/^[+\d\s()-]+$/.test(data.phone)) {
     return { error: PHONE_MESSAGE };
   }
+  if (isDriver && (data.email.length > 254 || !EMAIL_RE.test(data.email))) return { error: EMAIL_MESSAGE };
   if (data.name.length > 120 || data.from.length > 300 || data.to.length > 200) return { error: LENGTH_MESSAGE };
   if (Object.values(data).some((s) => /[\u0000-\u001f\u007f]/.test(s))) {
     return { error: "Мэдээллээ нэг мөрөөр зөв оруулна уу." };
@@ -86,7 +95,7 @@ export default function RegistrationSection() {
     if (busyRef.current) return;
     setError(null);
 
-    const result = validate(fields);
+    const result = validate(fields, role);
     if (!result.data) {
       setError(result.error ?? REQUIRED_MESSAGE);
       return;
@@ -114,7 +123,17 @@ export default function RegistrationSection() {
       const json = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
       if (!res.ok || !json) throw new Error(`HTTP ${res.status}`);
       if (!json.ok) {
-        setError(json.error === "rate_limited" ? RATE_MESSAGE : json.error === "invalid" ? REQUIRED_MESSAGE : SERVER_MESSAGE);
+        setError(
+          json.error === "rate_limited"
+            ? RATE_MESSAGE
+            : json.error === "invalid_email"
+              ? EMAIL_MESSAGE
+              : json.error === "invalid"
+                ? role === "driver"
+                  ? DRIVER_REQUIRED_MESSAGE
+                  : REQUIRED_MESSAGE
+                : SERVER_MESSAGE,
+        );
         return;
       }
       setSubmittedRole(role);
@@ -308,6 +327,26 @@ export default function RegistrationSection() {
                     className={inputClass}
                   />
                 </div>
+                {isDriver && (
+                  <div className="mb-5">
+                    <label htmlFor="registration-email" className="mb-2 block text-xs font-semibold text-gray-700">Имэйл хаяг</label>
+                    <input
+                      id="registration-email"
+                      name="email"
+                      type="email"
+                      inputMode="email"
+                      value={fields.email}
+                      onChange={update("email")}
+                      placeholder="name@example.com"
+                      autoComplete="email"
+                      autoCapitalize="none"
+                      spellCheck={false}
+                      required
+                      maxLength={254}
+                      className={inputClass}
+                    />
+                  </div>
+                )}
                 <div className="mb-5">
                   <label htmlFor="registration-from" className="mb-2 block text-xs font-semibold text-gray-700">Хаанаас</label>
                   <input
