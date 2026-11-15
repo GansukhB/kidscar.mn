@@ -221,13 +221,14 @@ export function CtaSection() {
 
       <div className="relative mx-auto mt-12 h-[300px] max-w-5xl overflow-hidden rounded-t-3xl bg-white sm:mt-16 sm:h-[460px]">
         <Image
-          src="/landing/hero-ride.webp"
-          alt="Эмэгтэй жолооч болон хамгаалалтын бүстэй хүүхдүүд цагаан машинаар сургууль руу явж буй 3D дүрслэл"
+          src="/landing/cta-ride.webp"
+          alt="Жолооч хамгаалалтын бүстэй дөрвөн хүүхдийг цагаан машинаар сургууль руу хүргэж яваа 3D дүрслэл"
           fill
           sizes="(min-width: 1024px) 1024px, 100vw"
-          className="object-cover object-[center_60%]"
+          className="object-cover object-[center_92%]"
         />
-        <div className="absolute bottom-6 left-[6%] flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3 text-left shadow-[0_12px_50px_#2947661a] backdrop-blur sm:bottom-12 sm:px-5 sm:py-4">
+        {/* Гар утсанд тэнгэр дээр (дээд талд), том дэлгэцэнд баруун доод буланд — машиныг халхлахгүй */}
+        <div className="absolute left-4 top-4 flex items-center gap-3 rounded-2xl bg-white/95 px-4 py-3 text-left shadow-[0_12px_50px_#2947661a] backdrop-blur sm:bottom-10 sm:left-auto sm:right-[5%] sm:top-auto sm:px-5 sm:py-4">
           <span className="grid h-8 w-8 place-items-center rounded-full bg-green-50 text-green-600">✓</span>
           <div>
             <strong className="block text-xs text-gray-900 sm:text-sm">Сургуульдаа хүрлээ.</strong>
