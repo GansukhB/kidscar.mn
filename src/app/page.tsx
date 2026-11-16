@@ -350,8 +350,11 @@ export default function Home() {
             </div>
             <div className="text-center md:text-right">
               <h5 className="text-lg font-semibold mb-2">Холбоо барих</h5>
-              <a href="mailto:info@kidscar.mn" className="text-brand-orange text-xl font-bold hover:underline transition-all">
+              <a href="mailto:info@kidscar.mn" className="block text-brand-orange text-xl font-bold hover:underline transition-all">
                 info@kidscar.mn
+              </a>
+              <a href="tel:+97677414488" className="block mt-1 text-brand-orange text-xl font-bold hover:underline transition-all">
+                7741-4488
               </a>
             </div>
           </div>
