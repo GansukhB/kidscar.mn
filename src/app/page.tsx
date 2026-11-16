@@ -11,6 +11,7 @@ import {
   DriversSection,
   FaqSection,
   ParentsSection,
+  PricingSection,
   TrustRow,
 } from "@/components/landing/InfoSections";
 
@@ -39,6 +40,7 @@ export default function Home() {
               <a href="#home" className="text-gray-600 hover:text-brand-orange transition-colors font-medium">Нүүр</a>
               <a href="#features" className="text-gray-600 hover:text-brand-orange transition-colors font-medium">Давуу тал</a>
               <a href="#how-it-works" className="text-gray-600 hover:text-brand-orange transition-colors font-medium">Хэрхэн ажилладаг вэ?</a>
+              <a href="#pricing" className="text-gray-600 hover:text-brand-orange transition-colors font-medium">Үнэ</a>
               <a href="#faq" className="hidden lg:inline text-gray-600 hover:text-brand-orange transition-colors font-medium">Асуулт</a>
               <a href="#contact" className="text-gray-600 hover:text-brand-orange transition-colors font-medium">Холбоо барих</a>
               <a href="#register" data-register="parent" className="bg-brand-blue hover:bg-blue-700 text-white px-5 py-2 rounded-full font-semibold transition-colors">Бүртгүүлэх</a>
@@ -69,6 +71,7 @@ export default function Home() {
             <a href="#home" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Нүүр</a>
             <a href="#features" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Давуу тал</a>
             <a href="#how-it-works" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Хэрхэн ажилладаг вэ?</a>
+            <a href="#pricing" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Үнэ</a>
             <a href="#faq" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Асуулт</a>
             <a href="#contact" className="block px-3 py-2 text-gray-600 hover:text-brand-orange font-medium" onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}>Холбоо барих</a>
           </div>
@@ -326,8 +329,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NEW: Daily journey demo, FAQ, final call-to-action */}
+      {/* NEW: Daily journey demo, pricing banner, FAQ, final call-to-action */}
       <JourneySection />
+      <PricingSection />
       <FaqSection />
       <CtaSection />
 

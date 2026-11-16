@@ -138,6 +138,48 @@ export function DriversSection() {
   );
 }
 
+/** Үнийн мэдээлэл — сарын хүргэлтийн үнийн баннер зураг */
+export function PricingSection() {
+  return (
+    <section id="pricing" className="scroll-mt-16 bg-[#f5f6f8] px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <div className="mx-auto max-w-5xl">
+        <div className="mb-8 text-center sm:mb-12">
+          <p className="mb-5 text-xs font-bold tracking-[0.15em] text-brand-blue">ҮНИЙН МЭДЭЭЛЭЛ</p>
+          <h2 className="text-3xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
+            Сарын тогтмол,
+            <br />
+            <span className="text-gray-400">ил тод үнэ.</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-gray-500 sm:text-lg">
+            Хүүхдээ гэрээс нь сургуульд хүргүүлэх нэг чиглэл, эсвэл хүргэж, буцааж авчрах хоёр чиглэлийн аль нэгийг сонгоорой.
+          </p>
+        </div>
+
+        <div className="overflow-hidden rounded-2xl bg-white shadow-[0_20px_60px_#172e4418] ring-1 ring-black/5 sm:rounded-3xl">
+          <Image
+            src="/landing/pricing.webp"
+            alt="Kids Car Mongolia — 1 сарын хүүхэд хүргэлтийн үнэ: 1 чиглэлдээ (гэр → сургууль) 240,000₮, 2 чиглэлдээ (гэр ⇄ сургууль) 480,000₮."
+            width={1536}
+            height={1024}
+            sizes="(min-width: 1024px) 1024px, 100vw"
+            className="h-auto w-full"
+          />
+        </div>
+
+        <div className="mt-8 flex justify-center sm:mt-10">
+          <a
+            href="#register"
+            data-register="parent"
+            className="inline-flex min-h-11 min-w-60 items-center justify-center gap-4 rounded-full bg-brand-blue px-6 py-3.5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 hover:bg-blue-700"
+          >
+            Эцэг эхээр бүртгүүлэх <ArrowIcon />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /** Түгээмэл асуулт */
 export function FaqSection() {
   const faqs = [
